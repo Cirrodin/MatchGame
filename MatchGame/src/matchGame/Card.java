@@ -1,7 +1,9 @@
 package matchGame;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Random;
 
 public class Card
 {
@@ -9,7 +11,9 @@ public class Card
 	private Color cardColor;
 	private int value; //In case we ever need
 	
-	private static Color[] colorArray = new Color[] {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.CYAN, Color.PINK, Color.ORANGE, Color.GRAY, Color.DARK_GRAY, Color.MAGENTA, Color.LIGHT_GRAY};
+	//instead of using Color[] with set values, i have it generating random RGB values as it goes and adding it to the array
+	private static ArrayList<Color> colorArray = new ArrayList<Color>();
+
 
 	public Card(Color cardColor)
 	{
@@ -39,9 +43,9 @@ public class Card
 		return value;
 	}
 	
-	public static Color[] getColorArray()
+	public static Color getColorArray(int i)
 	{
-		return colorArray;
+		return colorArray.get(i);
 	}
 	
 	@Override
@@ -72,5 +76,22 @@ public class Card
 	public enum Suit
 	{
 		HEARTS, SPADES, CLUBS, DIAMONDS;
+	}
+	
+	
+	
+	/**
+	 * adds random RGB value to the colorArray arraylist everytime it is called
+	 */
+	public static void populateColor() 
+	{
+		Random rand = new Random();
+		float r = rand.nextFloat();
+		float g = rand.nextFloat();
+		float b = rand.nextFloat();
+		
+		Color cardColor = new Color(r,g,b);
+		colorArray.add(cardColor);
+		
 	}
 }
