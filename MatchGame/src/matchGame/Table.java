@@ -19,8 +19,9 @@ public class Table
 
 		for (int i = 0; i < cardNumber / 2; i++)
 		{
-			deck.add(new Card(Card.getColorArray()[i]));
-			deck.add(new Card(Card.getColorArray()[i]));
+			Card.populateColor();
+			deck.add(new Card(Card.getColorArray(i)));
+			deck.add(new Card(Card.getColorArray(i)));
 
 		}
 
