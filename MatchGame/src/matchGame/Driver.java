@@ -9,7 +9,7 @@ public class Driver
 	public static void main(String[] args)
 	{
 
-		Controller.startGame(4); //3 is difficulty for game
+		Controller.startGame(3); //3 is difficulty for game
 
 		// Launch the application (GameFrame).
 		EventQueue.invokeLater(new Runnable()
